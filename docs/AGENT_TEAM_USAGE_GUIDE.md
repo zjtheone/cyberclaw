@@ -14,7 +14,7 @@ cyberclaw gateway --multi
 
 **输出**:
 ```
-🐈 Starting cyberclaw gateway in MULTI-AGENT mode on port 18790...
+🦞 Starting cyberclaw gateway in MULTI-AGENT mode on port 18790...
 Configured agents: ['orchestrator', 'main', 'coding', 'research', 'reviewer', 'debugger']
 Default agent: orchestrator
 Routing rules: 6
@@ -115,7 +115,7 @@ cyberclaw status
 
 **输出**:
 ```
-🐈 cyberclaw Status
+🦞 cyberclaw Status
 
 Config: ✓
 Workspace: ✓

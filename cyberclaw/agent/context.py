@@ -128,7 +128,7 @@ Skills with available="false" need dependencies installed first - you can try in
 - Use file tools when they are simpler or more reliable than shell commands.
 """
 
-        return f"""# cyberclaw 🐈
+        return f"""# cyberclaw 🦞
 
 You are cyberclaw, a powerful AI coding assistant. You have access to tools that allow you to:
 - Read, write, and edit files (with line numbers for precision)

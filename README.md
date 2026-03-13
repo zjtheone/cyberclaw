@@ -12,7 +12,7 @@
   </p>
 </div>
 
-🐈 **cyberclaw** is an **ultra-lightweight** personal AI assistant, forked from [nanobot](https://github.com/HKUDS/nanobot) and deeply customized.
+🦞 **cyberclaw** is an **ultra-lightweight** personal AI assistant, forked from [nanobot](https://github.com/HKUDS/nanobot) and deeply customized.
 
 ⚡️ Delivers core agent functionality with **99% fewer lines of code** than mainstream frameworks.
 
@@ -105,7 +105,7 @@ web_console/                 # 🌐 Streamlit web UI (10 files)
 - **2026-02-05** ✨ Added Feishu channel, DeepSeek provider, and enhanced scheduled tasks support!
 - **2026-02-04** 🚀 Released **v0.1.3.post4** with multi-provider & Docker support! Check [here](https://github.com/HKUDS/cyberclaw/releases/tag/v0.1.3.post4) for details.
 - **2026-02-03** ⚡ Integrated vLLM for local LLM support and improved natural language task scheduling!
-- **2026-02-02** 🎉 cyberclaw officially launched! Welcome to try 🐈 cyberclaw!
+- **2026-02-02** 🎉 cyberclaw officially launched! Welcome to try 🦞 cyberclaw!
 
 </details>
 
@@ -726,7 +726,7 @@ cyberclaw gateway
 
 ## 🌐 Agent Social Network
 
-🐈 cyberclaw is capable of linking to the agent social network (agent community). **Just send one message and your cyberclaw joins automatically!**
+🦞 cyberclaw is capable of linking to the agent social network (agent community). **Just send one message and your cyberclaw joins automatically!**
 
 | Platform | How to Join (send this message to your bot) |
 |----------|-------------|

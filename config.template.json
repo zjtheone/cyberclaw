@@ -1,0 +1,236 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.cyberclaw/workspace",
+      "model": "qwen3.5-plus",
+      "provider": "dashscope",
+      "temperature": 0.5,
+      "max_tokens": 8192,
+      "max_tool_iterations": 100,
+      "context_window": 400000,
+      "auto_verify": true,
+      "auto_verify_command": "",
+      "permission_mode": "auto",
+      "frequency_penalty": 0.5,
+      "subagents": {
+        "max_spawn_depth": 3,
+        "max_children_per_agent": 10,
+        "max_concurrent": 16,
+        "run_timeout_seconds": 900,
+        "archive_after_minutes": 60
+      }
+    },
+    "default_agent": "orchestrator",
+    "agent_list": [
+      {
+        "id": "orchestrator",
+        "name": "任务协调者",
+        "workspace": "~/.cyberclaw/workspace-orchestrator",
+        "model": "qwen3.5-plus",
+        "temperature": 0.6,
+        "max_tokens": 16384,
+        "max_tool_iterations": 150,
+        "subagents": {
+          "max_spawn_depth": 3,
+          "max_children_per_agent": 15,
+          "max_concurrent": 20,
+          "run_timeout_seconds": 1200
+        },
+        "frequency_penalty": 0.5
+      },
+      {
+        "id": "main",
+        "name": "主助手",
+        "workspace": "~/.cyberclaw/workspace-main",
+        "model": "qwen3.5-plus",
+        "temperature": 0.5,
+        "max_tokens": 8192,
+        "max_tool_iterations": 100,
+        "subagents": {
+          "max_spawn_depth": 2,
+          "max_children_per_agent": 8,
+          "max_concurrent": 10
+        },
+        "frequency_penalty": 0.5
+      },
+      {
+        "id": "coding",
+        "name": "编程助手",
+        "workspace": "~/.cyberclaw/workspace-coding",
+        "model": "qwen3.5-plus",
+        "temperature": 0.3,
+        "max_tokens": 16384,
+        "max_tool_iterations": 200,
+        "subagents": {
+          "max_spawn_depth": 2,
+          "max_children_per_agent": 10,
+          "max_concurrent": 12
+        },
+        "frequency_penalty": 0.5
+      },
+      {
+        "id": "research",
+        "name": "研究助手",
+        "workspace": "~/.cyberclaw/workspace-research",
+        "model": "qwen3.5-plus",
+        "temperature": 0.7,
+        "max_tokens": 16384,
+        "max_tool_iterations": 150,
+        "subagents": {
+          "max_spawn_depth": 2,
+          "max_children_per_agent": 12,
+          "max_concurrent": 16
+        },
+        "frequency_penalty": 0.5
+      },
+      {
+        "id": "reviewer",
+        "name": "代码审查助手",
+        "workspace": "~/.cyberclaw/workspace-reviewer",
+        "model": "qwen3.5-plus",
+        "temperature": 0.2,
+        "max_tokens": 8192,
+        "max_tool_iterations": 100,
+        "subagents": {
+          "max_spawn_depth": 1,
+          "max_children_per_agent": 5,
+          "max_concurrent": 8
+        },
+        "frequency_penalty": 0.5
+      },
+      {
+        "id": "debugger",
+        "name": "调试助手",
+        "workspace": "~/.cyberclaw/workspace-debugger",
+        "model": "qwen3.5-plus",
+        "temperature": 0.4,
+        "max_tokens": 16384,
+        "max_tool_iterations": 200,
+        "subagents": {
+          "max_spawn_depth": 2,
+          "max_children_per_agent": 8,
+          "max_concurrent": 10
+        },
+        "frequency_penalty": 0.5
+      }
+    ],
+    "bindings": [
+      {
+        "agent_id": "coding",
+        "keywords": ["代码", "编程", "实现", "开发", "写代码", "function", "class", "def ", "import ", "算法"],
+        "channels": ["cli", "qq"],
+        "priority": 50
+      },
+      {
+        "agent_id": "research",
+        "keywords": ["搜索", "查找", "研究", "调研", "资料", "文献", "调查", "分析"],
+        "channels": ["cli", "qq"],
+        "priority": 50
+      },
+      {
+        "agent_id": "reviewer",
+        "keywords": ["审查", "review", "检查", "优化", "重构", "改进", "bug", "错误", "问题"],
+        "channels": ["cli", "qq"],
+        "priority": 40
+      },
+      {
+        "agent_id": "debugger",
+        "keywords": ["调试", "debug", "修复", "报错", "异常", "错误", "fail", "error", "traceback"],
+        "channels": ["cli", "qq"],
+        "priority": 45
+      },
+      {
+        "agent_id": "orchestrator",
+        "keywords": ["复杂", "完整", "全栈", "系统", "架构", "设计", "多步骤", "项目"],
+        "channels": ["cli", "qq"],
+        "priority": 60
+      },
+      {
+        "agent_id": "main",
+        "channels": ["cli", "qq"],
+        "priority": 0
+      }
+    ],
+    "teams": [
+      {
+        "name": "dev-team",
+        "members": ["coding", "reviewer", "debugger"],
+        "leader": "coding",
+        "strategy": "parallel"
+      },
+      {
+        "name": "research-team",
+        "members": ["research", "main"],
+        "leader": "research",
+        "strategy": "parallel"
+      },
+      {
+        "name": "fullstack-team",
+        "members": ["research", "coding", "reviewer", "debugger"],
+        "leader": "orchestrator",
+        "strategy": "sequential"
+      },
+      {
+        "name": "code-review-team",
+        "members": ["reviewer", "debugger", "coding"],
+        "leader": "reviewer",
+        "strategy": "parallel"
+      }
+    ]
+  },
+  "providers": {
+    "dashscope": {
+      "api_key": "YOUR_DASHSCOPE_API_KEY",
+      "api_base": "https://coding.dashscope.aliyuncs.com/v1"
+    }
+  },
+  "channels": {
+    "send_progress": true,
+    "send_tool_hints": false,
+    "qq": {
+      "enabled": true,
+      "app_id": "YOUR_QQ_APP_ID",
+      "secret": "YOUR_QQ_SECRET",
+      "allow_from": ["*"],
+      "voice_reply": true,
+      "tts_voice": "zh-CN-XiaoxiaoNeural"
+    }
+  },
+  "tools": {
+    "agent_to_agent": {
+      "enabled": true,
+      "allow": ["orchestrator", "main", "coding", "research", "reviewer", "debugger"],
+      "deny": [],
+      "max_ping_pong_turns": 10
+    },
+    "sessions": {
+      "visibility": "tree"
+    },
+    "web": {
+      "search": {
+        "provider": "serpapi",
+        "serpapi_key": "YOUR_SERPAPI_KEY",
+        "max_results": 10
+      }
+    },
+    "exec": {
+      "timeout": 120
+    },
+    "restrict_to_workspace": false
+  },
+  "gateway": {
+    "host": "0.0.0.0",
+    "port": 18790,
+    "heartbeat": {
+      "enabled": false,
+      "interval_s": 3600
+    }
+  },
+  "memory_search": {
+    "enabled": true,
+    "watch_paths": ["memory"],
+    "max_distance": 0.5,
+    "hybrid_weight": 0.5,
+    "top_k": 5
+  }
+}

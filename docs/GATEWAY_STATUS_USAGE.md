@@ -55,7 +55,7 @@ asyncio.run(test())
 
 **输出示例**:
 ```
-🐈 cyberclaw Status
+🦞 cyberclaw Status
 
 Config: /Users/cengjian/.cyberclaw/config.json ✓
 Workspace: /Users/cengjian/.cyberclaw/workspace ✓
