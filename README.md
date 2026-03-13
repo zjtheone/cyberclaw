@@ -24,21 +24,21 @@
 
 cyberclaw is forked from [nanobot](https://github.com/HKUDS/nanobot) with significant new capabilities. Here's what we added:
 
-| Category | nanobot (upstream) | cyberclaw (this fork) |
-|----------|-------------------|----------------------|
-| **Self-Improving Agent** | — | Reflection Engine + Experience Repository + Skill Evolution Analyzer |
-| **Multi-Agent (A2A)** | — | Full Agent-to-Agent protocol with policy engine, PingPong dialog, announce chain |
-| **Web Console** | — | Streamlit-based UI with real-time chat, session management, subagent monitoring |
-| **Thinking Display** | — | Collapsible AI reasoning/thinking process in chat |
-| **Confidence Evaluation** | — | Response confidence scoring with configurable threshold |
-| **Tool Optimization** | — | Smart tool selection based on historical success rates |
-| **Skill Health Monitoring** | — | Automatic health scoring (success rate, frequency, recency, failure diversity) |
-| **Task Planner** | — | Task decomposition and planning module |
-| **QQ Image Recognition** | Text & voice only | Auto-download images, describe via multimodal LLM |
-| **QQ TTS Markdown Cleanup** | Raw markdown sent to TTS | `_clean_for_tts()` strips code blocks, links, tables for natural speech |
-| **Context Compaction Fix** | Save boundary may drift after compaction | `save_from` tracks boundary correctly across trim/compact cycles |
-| **Test Coverage** | Basic | 59 test files with comprehensive coverage for all new features |
-| **Documentation** | Basic | 28 detailed docs covering A2A, self-improvement, web console, security, etc. |
+| Category                    | nanobot (upstream)                       | cyberclaw (this fork)                                                            |
+| --------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------- |
+| **Self-Improving Agent**    | —                                        | Reflection Engine + Experience Repository + Skill Evolution Analyzer             |
+| **Multi-Agent (A2A)**       | —                                        | Full Agent-to-Agent protocol with policy engine, PingPong dialog, announce chain |
+| **Web Console**             | —                                        | Streamlit-based UI with real-time chat, session management, subagent monitoring  |
+| **Thinking Display**        | —                                        | Collapsible AI reasoning/thinking process in chat                                |
+| **Confidence Evaluation**   | —                                        | Response confidence scoring with configurable threshold                          |
+| **Tool Optimization**       | —                                        | Smart tool selection based on historical success rates                           |
+| **Skill Health Monitoring** | —                                        | Automatic health scoring (success rate, frequency, recency, failure diversity)   |
+| **Task Planner**            | —                                        | Task decomposition and planning module                                           |
+| **QQ Image Recognition**    | Text & voice only                        | Auto-download images, describe via multimodal LLM                                |
+| **QQ TTS Markdown Cleanup** | Raw markdown sent to TTS                 | `_clean_for_tts()` strips code blocks, links, tables for natural speech          |
+| **Context Compaction Fix**  | Save boundary may drift after compaction | `save_from` tracks boundary correctly across trim/compact cycles                 |
+| **Test Coverage**           | Basic                                    | 59 test files with comprehensive coverage for all new features                   |
+| **Documentation**           | Basic                                    | 28 detailed docs covering A2A, self-improvement, web console, security, etc.     |
 
 ### Key New Modules
 
@@ -153,7 +153,7 @@ web_console/                 # 🌐 Streamlit web UI (10 files)
 **Install from source** (latest features, recommended for development)
 
 ```bash
-git clone https://github.com/HKUDS/cyberclaw.git
+git clone https://github.com/zjtheone/cyberclaw.git
 cd cyberclaw
 pip install -e .
 ```
@@ -244,17 +244,17 @@ That's it! You have a working AI assistant in 2 minutes.
 
 Connect cyberclaw to your favorite chat platform.
 
-| Channel | What you need |
-|---------|---------------|
-| **Telegram** | Bot token from @BotFather |
-| **Discord** | Bot token + Message Content intent |
-| **WhatsApp** | QR code scan |
-| **Feishu** | App ID + App Secret |
-| **Mochat** | Claw token (auto-setup available) |
-| **DingTalk** | App Key + App Secret |
-| **Slack** | Bot token + App-Level token |
-| **Email** | IMAP/SMTP credentials |
-| **QQ** | App ID + App Secret |
+| Channel      | What you need                      |
+| ------------ | ---------------------------------- |
+| **Telegram** | Bot token from @BotFather          |
+| **Discord**  | Bot token + Message Content intent |
+| **WhatsApp** | QR code scan                       |
+| **Feishu**   | App ID + App Secret                |
+| **Mochat**   | Claw token (auto-setup available)  |
+| **DingTalk** | App Key + App Secret               |
+| **Slack**    | Bot token + App-Level token        |
+| **Email**    | IMAP/SMTP credentials              |
+| **QQ**       | App ID + App Secret                |
 
 <details>
 <summary><b>Telegram</b> (Recommended)</summary>
@@ -443,14 +443,14 @@ pip install cyberclaw-ai[matrix]
 
 > Keep a persistent `matrix-store` and stable `deviceId` — encrypted session state is lost if these change across restarts.
 
-| Option | Description |
-|--------|-------------|
-| `allowFrom` | User IDs allowed to interact. Empty denies all; use `["*"]` to allow everyone. |
-| `groupPolicy` | `open` (default), `mention`, or `allowlist`. |
-| `groupAllowFrom` | Room allowlist (used when policy is `allowlist`). |
-| `allowRoomMentions` | Accept `@room` mentions in mention mode. |
-| `e2eeEnabled` | E2EE support (default `true`). Set `false` for plaintext-only. |
-| `maxMediaBytes` | Max attachment size (default `20MB`). Set `0` to block all media. |
+| Option              | Description                                                                    |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `allowFrom`         | User IDs allowed to interact. Empty denies all; use `["*"]` to allow everyone. |
+| `groupPolicy`       | `open` (default), `mention`, or `allowlist`.                                   |
+| `groupAllowFrom`    | Room allowlist (used when policy is `allowlist`).                              |
+| `allowRoomMentions` | Accept `@room` mentions in mention mode.                                       |
+| `e2eeEnabled`       | E2EE support (default `true`). Set `false` for plaintext-only.                 |
+| `maxMediaBytes`     | Max attachment size (default `20MB`). Set `0` to block all media.              |
 
 
 
@@ -728,10 +728,10 @@ cyberclaw gateway
 
 🦞 cyberclaw is capable of linking to the agent social network (agent community). **Just send one message and your cyberclaw joins automatically!**
 
-| Platform | How to Join (send this message to your bot) |
-|----------|-------------|
-| [**Moltbook**](https://www.moltbook.com/) | `Read https://moltbook.com/skill.md and follow the instructions to join Moltbook` |
-| [**ClawdChat**](https://clawdchat.ai/) | `Read https://clawdchat.ai/skill.md and follow the instructions to join ClawdChat` |
+| Platform                                  | How to Join (send this message to your bot)                                        |
+| ----------------------------------------- | ---------------------------------------------------------------------------------- |
+| [**Moltbook**](https://www.moltbook.com/) | `Read https://moltbook.com/skill.md and follow the instructions to join Moltbook`  |
+| [**ClawdChat**](https://clawdchat.ai/)    | `Read https://clawdchat.ai/skill.md and follow the instructions to join ClawdChat` |
 
 Simply send the command above to your cyberclaw (via CLI or any chat channel), and it will handle the rest.
 
@@ -748,26 +748,26 @@ Config file: `~/.cyberclaw/config.json`
 > - **VolcEngine Coding Plan**: If you're on VolcEngine's coding plan, set `"apiBase": "https://ark.cn-beijing.volces.com/api/coding/v3"` in your volcengine provider config.
 > - **Alibaba Cloud Coding Plan**: If you're on the Alibaba Cloud Coding Plan (BaiLian), set `"apiBase": "https://coding.dashscope.aliyuncs.com/v1"` in your dashscope provider config.
 
-| Provider | Purpose | Get API Key |
-|----------|---------|-------------|
-| `custom` | Any OpenAI-compatible endpoint (direct, no LiteLLM) | — |
-| `openrouter` | LLM (recommended, access to all models) | [openrouter.ai](https://openrouter.ai) |
-| `anthropic` | LLM (Claude direct) | [console.anthropic.com](https://console.anthropic.com) |
-| `azure_openai` | LLM (Azure OpenAI) | [portal.azure.com](https://portal.azure.com) |
-| `openai` | LLM (GPT direct) | [platform.openai.com](https://platform.openai.com) |
-| `deepseek` | LLM (DeepSeek direct) | [platform.deepseek.com](https://platform.deepseek.com) |
-| `groq` | LLM + **Voice transcription** (Whisper) | [console.groq.com](https://console.groq.com) |
-| `gemini` | LLM (Gemini direct) | [aistudio.google.com](https://aistudio.google.com) |
-| `minimax` | LLM (MiniMax direct) | [platform.minimaxi.com](https://platform.minimaxi.com) |
-| `aihubmix` | LLM (API gateway, access to all models) | [aihubmix.com](https://aihubmix.com) |
-| `siliconflow` | LLM (SiliconFlow/硅基流动) | [siliconflow.cn](https://siliconflow.cn) |
-| `volcengine` | LLM (VolcEngine/火山引擎) | [volcengine.com](https://www.volcengine.com) |
-| `dashscope` | LLM (Qwen) | [dashscope.console.aliyun.com](https://dashscope.console.aliyun.com) |
-| `moonshot` | LLM (Moonshot/Kimi) | [platform.moonshot.cn](https://platform.moonshot.cn) |
-| `zhipu` | LLM (Zhipu GLM) | [open.bigmodel.cn](https://open.bigmodel.cn) |
-| `vllm` | LLM (local, any OpenAI-compatible server) | — |
-| `openai_codex` | LLM (Codex, OAuth) | `cyberclaw provider login openai-codex` |
-| `github_copilot` | LLM (GitHub Copilot, OAuth) | `cyberclaw provider login github-copilot` |
+| Provider         | Purpose                                             | Get API Key                                                          |
+| ---------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
+| `custom`         | Any OpenAI-compatible endpoint (direct, no LiteLLM) | —                                                                    |
+| `openrouter`     | LLM (recommended, access to all models)             | [openrouter.ai](https://openrouter.ai)                               |
+| `anthropic`      | LLM (Claude direct)                                 | [console.anthropic.com](https://console.anthropic.com)               |
+| `azure_openai`   | LLM (Azure OpenAI)                                  | [portal.azure.com](https://portal.azure.com)                         |
+| `openai`         | LLM (GPT direct)                                    | [platform.openai.com](https://platform.openai.com)                   |
+| `deepseek`       | LLM (DeepSeek direct)                               | [platform.deepseek.com](https://platform.deepseek.com)               |
+| `groq`           | LLM + **Voice transcription** (Whisper)             | [console.groq.com](https://console.groq.com)                         |
+| `gemini`         | LLM (Gemini direct)                                 | [aistudio.google.com](https://aistudio.google.com)                   |
+| `minimax`        | LLM (MiniMax direct)                                | [platform.minimaxi.com](https://platform.minimaxi.com)               |
+| `aihubmix`       | LLM (API gateway, access to all models)             | [aihubmix.com](https://aihubmix.com)                                 |
+| `siliconflow`    | LLM (SiliconFlow/硅基流动)                          | [siliconflow.cn](https://siliconflow.cn)                             |
+| `volcengine`     | LLM (VolcEngine/火山引擎)                           | [volcengine.com](https://www.volcengine.com)                         |
+| `dashscope`      | LLM (Qwen)                                          | [dashscope.console.aliyun.com](https://dashscope.console.aliyun.com) |
+| `moonshot`       | LLM (Moonshot/Kimi)                                 | [platform.moonshot.cn](https://platform.moonshot.cn)                 |
+| `zhipu`          | LLM (Zhipu GLM)                                     | [open.bigmodel.cn](https://open.bigmodel.cn)                         |
+| `vllm`           | LLM (local, any OpenAI-compatible server)           | —                                                                    |
+| `openai_codex`   | LLM (Codex, OAuth)                                  | `cyberclaw provider login openai-codex`                              |
+| `github_copilot` | LLM (GitHub Copilot, OAuth)                         | `cyberclaw provider login github-copilot`                            |
 
 <details>
 <summary><b>OpenAI Codex (OAuth)</b></summary>
@@ -898,16 +898,16 @@ That's it! Environment variables, model prefixing, config matching, and `cybercl
 
 **Common `ProviderSpec` options:**
 
-| Field | Description | Example |
-|-------|-------------|---------|
-| `litellm_prefix` | Auto-prefix model names for LiteLLM | `"dashscope"` → `dashscope/qwen-max` |
-| `skip_prefixes` | Don't prefix if model already starts with these | `("dashscope/", "openrouter/")` |
-| `env_extras` | Additional env vars to set | `(("ZHIPUAI_API_KEY", "{api_key}"),)` |
-| `model_overrides` | Per-model parameter overrides | `(("kimi-k2.5", {"temperature": 1.0}),)` |
-| `is_gateway` | Can route any model (like OpenRouter) | `True` |
-| `detect_by_key_prefix` | Detect gateway by API key prefix | `"sk-or-"` |
-| `detect_by_base_keyword` | Detect gateway by API base URL | `"openrouter"` |
-| `strip_model_prefix` | Strip existing prefix before re-prefixing | `True` (for AiHubMix) |
+| Field                    | Description                                     | Example                                  |
+| ------------------------ | ----------------------------------------------- | ---------------------------------------- |
+| `litellm_prefix`         | Auto-prefix model names for LiteLLM             | `"dashscope"` → `dashscope/qwen-max`     |
+| `skip_prefixes`          | Don't prefix if model already starts with these | `("dashscope/", "openrouter/")`          |
+| `env_extras`             | Additional env vars to set                      | `(("ZHIPUAI_API_KEY", "{api_key}"),)`    |
+| `model_overrides`        | Per-model parameter overrides                   | `(("kimi-k2.5", {"temperature": 1.0}),)` |
+| `is_gateway`             | Can route any model (like OpenRouter)           | `True`                                   |
+| `detect_by_key_prefix`   | Detect gateway by API key prefix                | `"sk-or-"`                               |
+| `detect_by_base_keyword` | Detect gateway by API base URL                  | `"openrouter"`                           |
+| `strip_model_prefix`     | Strip existing prefix before re-prefixing       | `True` (for AiHubMix)                    |
 
 </details>
 
@@ -942,10 +942,10 @@ Add MCP servers to your `config.json`:
 
 Two transport modes are supported:
 
-| Mode | Config | Example |
-|------|--------|---------|
-| **Stdio** | `command` + `args` | Local process via `npx` / `uvx` |
-| **HTTP** | `url` + `headers` (optional) | Remote endpoint (`https://mcp.example.com/sse`) |
+| Mode      | Config                       | Example                                         |
+| --------- | ---------------------------- | ----------------------------------------------- |
+| **Stdio** | `command` + `args`           | Local process via `npx` / `uvx`                 |
+| **HTTP**  | `url` + `headers` (optional) | Remote endpoint (`https://mcp.example.com/sse`) |
 
 Use `toolTimeout` to override the default 30s per-call timeout for slow servers:
 
@@ -973,11 +973,11 @@ MCP tools are automatically discovered and registered on startup. The LLM can us
 > For production deployments, set `"restrictToWorkspace": true` in your config to sandbox the agent.
 > In `v0.1.4.post3` and earlier, an empty `allowFrom` allowed all senders. Since `v0.1.4.post4`, empty `allowFrom` denies all access by default. To allow all senders, set `"allowFrom": ["*"]`.
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `tools.restrictToWorkspace` | `false` | When `true`, restricts **all** agent tools (shell, file read/write/edit, list) to the workspace directory. Prevents path traversal and out-of-scope access. |
-| `tools.exec.pathAppend` | `""` | Extra directories to append to `PATH` when running shell commands (e.g. `/usr/sbin` for `ufw`). |
-| `channels.*.allowFrom` | `[]` (deny all) | Whitelist of user IDs. Empty denies all; use `["*"]` to allow everyone. |
+| Option                      | Default         | Description                                                                                                                                                 |
+| --------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tools.restrictToWorkspace` | `false`         | When `true`, restricts **all** agent tools (shell, file read/write/edit, list) to the workspace directory. Prevents path traversal and out-of-scope access. |
+| `tools.exec.pathAppend`     | `""`            | Extra directories to append to `PATH` when running shell commands (e.g. `/usr/sbin` for `ufw`).                                                             |
+| `channels.*.allowFrom`      | `[]` (deny all) | Whitelist of user IDs. Empty denies all; use `["*"]` to allow everyone.                                                                                     |
 
 
 ## 🧩 Multiple Instances
@@ -1013,12 +1013,12 @@ cyberclaw agent -c ~/.cyberclaw-telegram/config.json -w /tmp/cyberclaw-telegram-
 
 > `cyberclaw agent` starts a local CLI agent using the selected workspace/config. It does not attach to or proxy through an already running `cyberclaw gateway` process.
 
-| Component | Resolved From | Example |
-|-----------|---------------|---------|
-| **Config** | `--config` path | `~/.cyberclaw-A/config.json` |
-| **Workspace** | `--workspace` or config | `~/.cyberclaw-A/workspace/` |
-| **Cron Jobs** | config directory | `~/.cyberclaw-A/cron/` |
-| **Media / runtime state** | config directory | `~/.cyberclaw-A/media/` |
+| Component                 | Resolved From           | Example                      |
+| ------------------------- | ----------------------- | ---------------------------- |
+| **Config**                | `--config` path         | `~/.cyberclaw-A/config.json` |
+| **Workspace**             | `--workspace` or config | `~/.cyberclaw-A/workspace/`  |
+| **Cron Jobs**             | config directory        | `~/.cyberclaw-A/cron/`       |
+| **Media / runtime state** | config directory        | `~/.cyberclaw-A/media/`      |
 
 ### How It Works
 
@@ -1083,20 +1083,20 @@ cyberclaw gateway --config ~/.cyberclaw-telegram/config.json --workspace /tmp/cy
 
 ## 💻 CLI Reference
 
-| Command | Description |
-|---------|-------------|
-| `cyberclaw onboard` | Initialize config & workspace |
-| `cyberclaw agent -m "..."` | Chat with the agent |
-| `cyberclaw agent -w <workspace>` | Chat against a specific workspace |
+| Command                                      | Description                              |
+| -------------------------------------------- | ---------------------------------------- |
+| `cyberclaw onboard`                          | Initialize config & workspace            |
+| `cyberclaw agent -m "..."`                   | Chat with the agent                      |
+| `cyberclaw agent -w <workspace>`             | Chat against a specific workspace        |
 | `cyberclaw agent -w <workspace> -c <config>` | Chat against a specific workspace/config |
-| `cyberclaw agent` | Interactive chat mode |
-| `cyberclaw agent --no-markdown` | Show plain-text replies |
-| `cyberclaw agent --logs` | Show runtime logs during chat |
-| `cyberclaw gateway` | Start the gateway |
-| `cyberclaw status` | Show status |
-| `cyberclaw provider login openai-codex` | OAuth login for providers |
-| `cyberclaw channels login` | Link WhatsApp (scan QR) |
-| `cyberclaw channels status` | Show channel status |
+| `cyberclaw agent`                            | Interactive chat mode                    |
+| `cyberclaw agent --no-markdown`              | Show plain-text replies                  |
+| `cyberclaw agent --logs`                     | Show runtime logs during chat            |
+| `cyberclaw gateway`                          | Start the gateway                        |
+| `cyberclaw status`                           | Show status                              |
+| `cyberclaw provider login openai-codex`      | OAuth login for providers                |
+| `cyberclaw channels login`                   | Link WhatsApp (scan QR)                  |
+| `cyberclaw channels status`                  | Show channel status                      |
 
 Interactive mode exits: `exit`, `quit`, `/exit`, `/quit`, `:q`, or `Ctrl+D`.
 
