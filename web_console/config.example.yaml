@@ -1,0 +1,31 @@
+# cyberclaw Web Console Configuration
+# Copy this file to ~/.cyberclaw/web_console.yaml and customize
+
+# Server settings
+host: 0.0.0.0
+port: 8501
+enable_cors: true
+
+# cyberclaw integration
+workspace: /Users/cengjian/.cyberclaw/workspace
+# config_file: /Users/cengjian/.cyberclaw/config.yaml
+
+# LLM settings (optional - overrides cyberclaw config)
+# model: deepseek-chat
+# max_tokens: 4096
+# temperature: 0.7
+
+# Session settings
+# session_dir: /tmp/cyberclaw_sessions
+max_sessions: 100
+session_timeout_hours: 24
+
+# UI settings
+default_theme: dark
+show_subagent_monitor: true
+enable_file_upload: true
+max_message_length: 10000
+
+# Performance settings
+enable_caching: true
+auto_refresh_interval: 5
